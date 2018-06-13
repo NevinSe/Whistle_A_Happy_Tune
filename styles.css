@@ -1,3 +1,11 @@
 .center {
     text-align: center;
 }
+
+.reference{
+	text-align: left;
+	position: fixed;
+	bottom: 0;
+	right: 5px;
+	font-size: 10px;
+}
