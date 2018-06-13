@@ -30,26 +30,43 @@ function getURLString(userSearchTerm){
     let url = `https://itunes.apple.com/search?${country}${media}${language}${explicit}${userSearchTerm}`;
     console.log(url);
     return url;
+
 }
 
 //function ran on search button click
 function searchButton(){
     let userSearchTerm = getSearchValue();
     let url = getURLString(userSearchTerm);
-    let JSON = loadJSON(url);
-    console.log(JSON);
+    loadJSON(url);
+    let audioObject = document.getElementById('audio');
+    let audioTag = document.getElementById('audioTag');
+    //console.log(JSON);
     console.log('this is my object:', myObj);
+    console.log('first song url', myObj.resultCount);
+    //audioObject.src = `${myObj.results[0].previewUrl}`;
+    //audioTag.src = `${myObj.results[0].previewUrl}`;
 }
+/*document.addEventListener('keypress', function(e){
+    let key = e.which || e.keyCode;
+    if (key === 13) {
+        let userSearchTerm = getSearchValue();
+        let url = getURLString(userSearchTerm);
+        let JSON = loadJSON(url);
+        console.log(JSON);
+        console.log('this is my object:', myObj);
+        console.log('audio link', myObj.results[0].previewUrl);
+        document.getElementById('audio')[1].setAttribute('src', myObj.results[0].previewUrl);
+    }
+});*/
 
 function loadJSON(url){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        console.log("hello");
         if(this.readyState === 4 && this.status === 200) {
             let bacon = JSON.parse(this.responseText);
-            document.getElementById("whatever").innerHTML = this.responseText;
+            document.getElementById("display").innerHTML = this.responseText;
 
-            myObj[0] = bacon.results;
+            myObj[0] = bacon;
 
 
         }
