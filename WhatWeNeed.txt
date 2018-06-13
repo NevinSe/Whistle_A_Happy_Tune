@@ -19,7 +19,6 @@ What is needed for Whistle a Happy Tune:
     A.) term - decided by user
     B.) country = US
     C.) media = music
-    D.) entity = music*
-    E.) limit = 25
-    F.) language = en_us
-    G.) explicit = Yes, No
+    D.) limit = 25
+    E.) language = en_us
+    F.) explicit = Yes, No
