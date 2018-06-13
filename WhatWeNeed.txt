@@ -2,7 +2,7 @@ What is needed for Whistle a Happy Tune:
 
 
 1.) HTML / CSS User Interface
-	a.) A textbox for user input
+	a.) A text box for user input
 	b.) Submit button
 	c.) Change between explicit and normal
 
@@ -14,3 +14,12 @@ What is needed for Whistle a Happy Tune:
 	e.) extrapolate .JSON data
 	f.) show user data
 	g.) preview button
+
+3.) API Parameters
+    A.) term - decided by user
+    B.) country = US
+    C.) media = music
+    D.) entity = music*
+    E.) limit = 25
+    F.) language = en_us
+    G.) explicit = Yes, No
