@@ -1,0 +1,16 @@
+What is needed for Whistle a Happy Tune:
+
+
+1.) HTML / CSS User Interface
+	a.) A textbox for user input
+	b.) Submit button
+	c.) Change between explicit and normal
+
+2.) JavaScript:
+	a.) get user input
+	b.) extrapolate input data
+	c.) use input data for search api
+	d.) ??? get result back from api (in .JSON)
+	e.) extrapolate .JSON data
+	f.) show user data
+	g.) preview button
