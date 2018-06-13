@@ -1,2 +1,2 @@
 # Whistle_A_Happy_Tune
-Use jQuarry to return search results
+Use an API to return search results
