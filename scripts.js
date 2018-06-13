@@ -24,11 +24,24 @@ function getURL(){
     url += http;
 }*/
 
+//function that gets user search term
 function getSearchValue(){
-    return document.getElementById('searchTermTextBox').value;
+    let userSearchTerm = document.getElementById('searchTermTextBox').value.toLowerCase();
+    let myArr = userSearchTerm.split(' ');
+    let myStr = '';
+    for(i = 0; i < myArr.length; i++){
+        myStr += myArr[i];
+        if(i !== myArr.length - 1){
+            myStr += '+';
+        }
+    }
+    return myStr;
+
+
 }
 
-function search(){
+//function ran on search button click
+function searchButton(){
     let userSearch = getSearchValue();
-    console.log(userSearch)
+    console.log(userSearch);
 }
