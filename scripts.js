@@ -1,4 +1,6 @@
 
+let myObj = {};
+
 function getSearchValue(){
     let userSearchTerm = document.getElementById('searchTermTextBox').value.toLowerCase();
     let myArr = userSearchTerm.split(' ');
@@ -35,18 +37,24 @@ function searchButton(){
     let userSearchTerm = getSearchValue();
     let url = getURLString(userSearchTerm);
     let JSON = loadJSON(url);
+    console.log(JSON);
+    console.log('this is my object:', myObj);
 }
 
 function loadJSON(url){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         console.log("hello");
-        if(this.readyState === 4 && this.status === 200){
+        if(this.readyState === 4 && this.status === 200) {
+            let bacon = JSON.parse(this.responseText);
             document.getElementById("whatever").innerHTML = this.responseText;
-            console.log(JSON.parse(this.responseText));
-        }
 
+            myObj[0] = bacon.results;
+
+
+        }
     };
     xhttp.open("GET", url, true);
     xhttp.send();
 }
+
