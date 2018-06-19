@@ -20,14 +20,14 @@ function getExplicitValue(){
    }
 }
 
-function getURLString(userSearchTerm){\
-    let resultCount = 'limit=10&';
+function getURLString(userSearchTerm) {
+    var searchLimit = 10;
+    let resultCount = `limit=${searchLimit}&`;
     let country = 'country=us&';
     let media = 'media=music&';
     let explicit = getExplicitValue();
     let language = 'lang=en_us&';
     let url = `https://itunes.apple.com/search?${country}${media}${resultCount}${language}${explicit}${userSearchTerm}`;
-    console.log(url);
     return url;
 
 }
@@ -47,12 +47,15 @@ document.addEventListener('keypress', function(e){
     }
 });
 function secondMaster(myObj){
-    let songPreviewUrl = myObj.results[0].previewUrl;
-    let audioObject = document.getElementById('audio');
-    let audioTag = document.getElementById('audioTag');
-    audioObject.src = songPreviewUrl;
-    audioTag.src = songPreviewUrl;
-    document.getElementById('displayOneSong').innerHTML = myObj.results[0].trackName;
+    for (let i = 0; i < 10; i++)
+    {
+        document.getElementById(`trackName${[i]}`).innerHTML = myObj.results[i].trackName;
+        document.getElementById(`albumCover${[i]}`).src = myObj.results[i].artworkUrl100;
+        document.getElementById(`artistName${[i]}`).innerHTML = myObj.results[i].artistName;
+        document.getElementById(`preview${[i]}`).src = myObj.results[i].previewUrl;
+        document.getElementById(`preview${[i]}`).hidden = false;
+
+    }
 }
 
 function loadJSON(url){
@@ -60,7 +63,6 @@ function loadJSON(url){
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             let bacon = JSON.parse(this.responseText);
-            console.log(bacon);
             secondMaster(bacon);
         }
     };
