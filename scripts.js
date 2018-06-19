@@ -45,12 +45,13 @@ document.addEventListener('keypress', function(e){
         loadJSON(url);
     }
 });
-function secondMaster(myObj ,songPreviewUrl){
+function secondMaster(myObj){
+    let songPreviewUrl = myObj.results[0].previewUrl;
     let audioObject = document.getElementById('audio');
     let audioTag = document.getElementById('audioTag');
     audioObject.src = songPreviewUrl;
     audioTag.src = songPreviewUrl;
-    document.getElementById('displayOneSong').innerHTML = 'Hello';
+    document.getElementById('displayOneSong').innerHTML = myObj.results[0].trackName;
 }
 
 function loadJSON(url){
@@ -59,9 +60,7 @@ function loadJSON(url){
         if(this.readyState === 4 && this.status === 200) {
             let bacon = JSON.parse(this.responseText);
             console.log(bacon);
-            document.getElementById("display").innerHTML= bacon;
-            let songPreviewUrl = myObj.results[0].previewUrl;
-            secondMaster(bacon ,songPreviewUrl);
+            secondMaster(bacon);
         }
     };
     xhttp.open("GET", url, true);
