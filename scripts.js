@@ -20,12 +20,13 @@ function getExplicitValue(){
    }
 }
 
-function getURLString(userSearchTerm){
+function getURLString(userSearchTerm){\
+    let resultCount = 'limit=10&';
     let country = 'country=us&';
     let media = 'media=music&';
     let explicit = getExplicitValue();
     let language = 'lang=en_us&';
-    let url = `https://itunes.apple.com/search?${country}${media}${language}${explicit}${userSearchTerm}`;
+    let url = `https://itunes.apple.com/search?${country}${media}${resultCount}${language}${explicit}${userSearchTerm}`;
     console.log(url);
     return url;
 
