@@ -49,6 +49,11 @@ document.addEventListener('keypress', function(e){
 function secondMaster(myObj){
     for (let i = 0; i < 10; i++)
     {
+        if (i % 2 === 0) {
+            document.getElementById(`${i}`).style = "background-color:linear-gradient(to right, lightgrey, dimgrey, lightgrey)";
+        } else {
+            document.getElementById(`${i}`).style = "background-color:lightgrey";
+        }
         document.getElementById(`trackName${[i]}`).innerHTML = myObj.results[i].trackName;
         document.getElementById(`albumCover${[i]}`).src = myObj.results[i].artworkUrl100;
         document.getElementById(`artistName${[i]}`).innerHTML = myObj.results[i].artistName;
